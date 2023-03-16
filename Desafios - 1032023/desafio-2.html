@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Desafio 02</title>
+   <style>
+      *{
+         padding: 0;
+         margin: 0;
+         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      label {
+         display: inline-block;
+         text-align: right;
+         width: 100px;
+      }
+
+      #nome{
+         width: 200px;
+      }
+
+      .all{
+         width: 400px;
+         margin: auto;
+         border: 1px solid black;
+         padding: 20px;
+      }
+
+      .imc{
+         border: 1px solid lightseagreen;
+         padding: 20px 0;
+         padding-right: 20px;
+      }
+      h1{
+         color: lightseagreen;
+         text-align: center;
+      }
+
+      .input-2{
+         width: 60px;
+      }
+
+      input[type=button]{
+         margin-left: 101px;
+         padding: 10px;
+         margin-bottom: 5px;
+      }
+
+      #resultado{
+         resize: none;
+         writing-mode: none;
+      }
+   </style>
+</head>
+<body>
+   <div class="all">
+      <h1>Cálculo do IMC</h1>
+      <div class="imc">
+         
+         <label for="nome">Nome</label>
+         <input type="text" id="inome" required><br>
+
+         <label for="peso">Peso</label>
+         <input type="number" id="ipeso" class="input-2" placeholder="55" required><br>
+
+         <label for="altura">Altura</label>
+         <input type="number" id="ialtura" class="input-2" placeholder="1.60" required><br>
+         
+         <input type="button" value="Calcular IMC" onclick="calcularImc(inome, ipeso, ialtura)">
+
+         <textarea id="resultado" cols="20" rows="3"></textarea>
+
+      </div>
+   </div>
+   
+   <script>
+      function calcularImc(nome, peso, altura){
+         let imc = parseFloat(peso.value/(altura.value*altura.value)).toFixed(2);
+         document.querySelector("#resultado").value =' Olá, ' + nome.value + '.\n' + ' O seu IMC é de\n' + ' ' + imc;
+      };
+   </script>
+</body>
+</html>
